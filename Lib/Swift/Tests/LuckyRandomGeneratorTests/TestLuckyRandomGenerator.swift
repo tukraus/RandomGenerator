@@ -6,7 +6,9 @@ class TestLuckyRandomGenerator: XCTestCase {
 
   static var allTests: [(String, (TestLuckyRandomGenerator) -> () throws -> Void)] {
       return [
-          ("testLotteryTicketsGenerator", testLotteryTicketsGenerator)
+          ("testPositiveLotteryTicketsGenerator", testPositiveLotteryTicketsGenerator),
+          ("testZeroLotteryTicketsGenerator", testZeroLotteryTicketsGenerator),
+          ("testNegativeLotteryTicketsGenerator", testNegativeLotteryTicketsGenerator)
       ]
   }
 
@@ -17,11 +19,25 @@ class TestLuckyRandomGenerator: XCTestCase {
     luckyGenerator = LuckyRandomGenerator()
   }
 
-  func testLotteryTicketsGenerator() {
+  func testPositiveLotteryTicketsGenerator() {
     let shouldGenerateCountNumbers = 6
     let luckyNumbers = luckyGenerator.generateLotteryTicket(numbersToGenerate: shouldGenerateCountNumbers)
     luckyGenerator.printSetOfTickets(tickets: luckyNumbers)
     XCTAssertEqual(luckyNumbers.count, shouldGenerateCountNumbers)
+  }
+
+  func testZeroLotteryTicketsGenerator() {
+    let shouldGenerateCountNumbers = 0
+    let luckyNumbers = luckyGenerator.generateLotteryTicket(numbersToGenerate: shouldGenerateCountNumbers)
+    luckyGenerator.printSetOfTickets(tickets: luckyNumbers)
+    XCTAssertEqual(luckyNumbers.count, shouldGenerateCountNumbers)
+  }
+
+  func testNegativeLotteryTicketsGenerator() {
+    let shouldGenerateCountNumbers = -2
+    let luckyNumbers = luckyGenerator.generateLotteryTicket(numbersToGenerate: shouldGenerateCountNumbers)
+    luckyGenerator.printSetOfTickets(tickets: luckyNumbers)
+    XCTAssertEqual(luckyNumbers.count, 0)
   }
 
 }

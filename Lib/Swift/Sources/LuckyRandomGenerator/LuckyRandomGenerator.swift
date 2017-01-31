@@ -7,6 +7,12 @@ import Darwin.C
 #endif
 
 class LuckyRandomGenerator {
+
+  func forward(_ s1: Int, _ s2: Int) -> Bool {
+      return s1 < s2
+  }
+
+
   func generateRandomLuckyNumber(min: Int, max: Int) -> Int {
     #if os(Linux)
     let time = Int(Date().timeIntervalSinceReferenceDate)
@@ -17,18 +23,22 @@ class LuckyRandomGenerator {
     #endif
   }
 
-  func printSetOfTickets(tickets: Set<Int>) {
+  func printSetOfTickets(tickets: Array<Int>) {
     for currentTicket in tickets {
       print(String(currentTicket))
     }
   }
 
-  func generateLotteryTicket(numbersToGenerate: Int) -> Set<Int> {
+  func generateLotteryTicket(numbersToGenerate: Int) -> Array<Int> {
     var luckyNumbers = Set<Int>()
+    if (numbersToGenerate < 1) {
+      return [Int]()
+    }
     while (luckyNumbers.count < numbersToGenerate) {
       let numberGenerated = generateRandomLuckyNumber(min: Constants.Defaults.smallestAllowedValue, max: Constants.Defaults.biggestAllowedValue)
       luckyNumbers.insert(numberGenerated)
     }
-    return luckyNumbers
+    let sortedLuckyNumbers = luckyNumbers.sorted(by: forward)
+    return sortedLuckyNumbers
   }
 }
