@@ -8,6 +8,7 @@ import Darwin.C
 
 func generateRandomNumber(min: Int, max: Int) -> Int {
   #if os(Linux)
+  sleep(1)
   let time = Int(Date().timeIntervalSinceReferenceDate)
   srand(UInt32(time))
   return Int(random() % (max - min)) + min;
@@ -29,6 +30,7 @@ func currentTimeMillis() -> UInt64 {
 class LuckyRandomGenerator {
 
   func printSetOfTickets(tickets: Array<Int>) {
+    print("Generated Numbers:")
     for currentTicket in tickets {
       print(String(currentTicket))
     }
@@ -40,7 +42,7 @@ class LuckyRandomGenerator {
       return [Int]()
     }
     while (luckyNumbers.count < numbersToGenerate) {
-      let numberGenerated = generateRandomNumber(min: Constants.Defaults.smallestAllowedValue, max: Constants.Defaults.biggestAllowedValue)
+      let numberGenerated = generateRandomNumber(min: Constants.Defaults.smallestAllowedValue, max: Constants.Defaults.biggestAllowedValueInUk)
       luckyNumbers.insert(numberGenerated)
     }
     let sortedLuckyNumbers = luckyNumbers.sorted(by: forward)
@@ -51,12 +53,14 @@ class LuckyRandomGenerator {
 extension String {
 
   func generateRandomString(length: Int) -> String {
+    if (length < 1) {
+      return String()
+    }
     let base = Constants.Defaults.baseString
     var randomString: String = ""
 
     for _ in 0..<length {
       let randomValue = generateRandomNumber(min: 0, max: base.characters.count)
-      sleep(1)
       randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
     }
     return randomString
