@@ -1,5 +1,6 @@
 import XCTest
 import Foundation
+
 @testable import LuckyRandomGenerator
 
 class TestLuckyRandomGenerator: XCTestCase {
@@ -8,7 +9,8 @@ class TestLuckyRandomGenerator: XCTestCase {
       return [
           ("testPositiveLotteryTicketsGenerator", testPositiveLotteryTicketsGenerator),
           ("testZeroLotteryTicketsGenerator", testZeroLotteryTicketsGenerator),
-          ("testNegativeLotteryTicketsGenerator", testNegativeLotteryTicketsGenerator)
+          ("testNegativeLotteryTicketsGenerator", testNegativeLotteryTicketsGenerator),
+          ("testPositiveLengthStringGenerator", testPositiveLengthStringGenerator)
       ]
   }
 
@@ -40,4 +42,10 @@ class TestLuckyRandomGenerator: XCTestCase {
     XCTAssertEqual(luckyNumbers.count, 0)
   }
 
+  func testPositiveLengthStringGenerator() {
+    let stringLen = 20
+    let aRandomString = String().generateRandomString(length: stringLen)
+    print(aRandomString);
+    XCTAssertEqual(aRandomString.characters.count, stringLen)
+  }
 }

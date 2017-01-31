@@ -6,22 +6,27 @@ import Glibc
 import Darwin.C
 #endif
 
+func generateRandomNumber(min: Int, max: Int) -> Int {
+  #if os(Linux)
+  let time = Int(Date().timeIntervalSinceReferenceDate)
+  srand(UInt32(time))
+  return Int(random() % (max - min)) + min;
+  #else
+  return Int(arc4random_uniform(UInt32(max)))
+  #endif
+}
+
+func forward(_ s1: Int, _ s2: Int) -> Bool {
+  return s1 < s2
+}
+
+func currentTimeMillis() -> UInt64 {
+      var darwinTime : timeval = timeval(tv_sec: 0, tv_usec: 0)
+      gettimeofday(&darwinTime, nil)
+      return UInt64(darwinTime.tv_sec * 1000) + UInt64(darwinTime.tv_usec / 1000)
+}
+
 class LuckyRandomGenerator {
-
-  func forward(_ s1: Int, _ s2: Int) -> Bool {
-      return s1 < s2
-  }
-
-
-  func generateRandomLuckyNumber(min: Int, max: Int) -> Int {
-    #if os(Linux)
-    let time = Int(Date().timeIntervalSinceReferenceDate)
-    srand(UInt32(time))
-    return Int(random() % (max - min)) + min;
-    #else
-    return Int(arc4random_uniform(UInt32(max)))
-    #endif
-  }
 
   func printSetOfTickets(tickets: Array<Int>) {
     for currentTicket in tickets {
@@ -35,10 +40,25 @@ class LuckyRandomGenerator {
       return [Int]()
     }
     while (luckyNumbers.count < numbersToGenerate) {
-      let numberGenerated = generateRandomLuckyNumber(min: Constants.Defaults.smallestAllowedValue, max: Constants.Defaults.biggestAllowedValue)
+      let numberGenerated = generateRandomNumber(min: Constants.Defaults.smallestAllowedValue, max: Constants.Defaults.biggestAllowedValue)
       luckyNumbers.insert(numberGenerated)
     }
     let sortedLuckyNumbers = luckyNumbers.sorted(by: forward)
     return sortedLuckyNumbers
+  }
+}
+
+extension String {
+
+  func generateRandomString(length: Int) -> String {
+    let base = Constants.Defaults.baseString
+    var randomString: String = ""
+
+    for _ in 0..<length {
+      let randomValue = generateRandomNumber(min: 0, max: base.characters.count)
+      sleep(1)
+      randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+    }
+    return randomString
   }
 }

@@ -4,6 +4,7 @@ struct Constants {
       //Add Default Constants here
         static let smallestAllowedValue = 1
         static let biggestAllowedValue = 59
+        static let baseString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !@#$%&*^~/;:><,.-+|()"
     }
 
     struct NumValues {
