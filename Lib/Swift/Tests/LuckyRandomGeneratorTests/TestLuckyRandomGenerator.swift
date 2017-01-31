@@ -2,7 +2,14 @@ import XCTest
 import Foundation
 @testable import LuckyRandomGenerator
 
-class LuckyRandomGeneratorTests: XCTestCase {
+class TestLuckyRandomGenerator: XCTestCase {
+
+  static var allTests: [(String, (TestLuckyRandomGenerator) -> () throws -> Void)] {
+      return [
+          ("testLotteryTicketsGenerator", testLotteryTicketsGenerator)
+      ]
+  }
+
   var luckyGenerator : LuckyRandomGenerator!
 
   override func setUp() {
