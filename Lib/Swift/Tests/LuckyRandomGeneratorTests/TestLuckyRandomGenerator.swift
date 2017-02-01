@@ -54,8 +54,8 @@ class TestLuckyRandomGenerator: XCTestCase {
     let stringLen = 10
     let randomStringA = String().generateRandomString(length: stringLen)
     let randomStringB = String().generateRandomString(length: stringLen)
-    print("Generated String A:" + randomStringA)
-    print("Generated String B:" + randomStringB)
+    print("Generated String A: " + randomStringA)
+    print("Generated String B: " + randomStringB)
     XCTAssertNotEqual(randomStringA, randomStringB)
   }
 
