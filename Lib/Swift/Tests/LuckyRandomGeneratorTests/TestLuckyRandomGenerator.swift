@@ -12,7 +12,8 @@ class TestLuckyRandomGenerator: XCTestCase {
           ("testNegativeLotteryTicketsGenerator", testNegativeLotteryTicketsGenerator),
           ("testPositiveLengthStringGenerator", testPositiveLengthStringGenerator),
           ("testNegativeLengthStringGenerator", testNegativeLengthStringGenerator),
-          ("testZeroLengthStringGenerator", testZeroLengthStringGenerator)
+          ("testZeroLengthStringGenerator", testZeroLengthStringGenerator),
+          ("testDifferentStringGenerator", testDifferentStringGenerator)
       ]
   }
 
@@ -45,9 +46,17 @@ class TestLuckyRandomGenerator: XCTestCase {
   func testPositiveLengthStringGenerator() {
     let stringLen = 10
     let aRandomString = String().generateRandomString(length: stringLen)
-    print("Generated String:")
-    print(aRandomString);
+    print("Generated String: " + aRandomString)
     XCTAssertEqual(aRandomString.characters.count, stringLen)
+  }
+
+  func testDifferentStringGenerator() {
+    let stringLen = 10
+    let randomStringA = String().generateRandomString(length: stringLen)
+    let randomStringB = String().generateRandomString(length: stringLen)
+    print("Generated String A:" + randomStringA)
+    print("Generated String B:" + randomStringB)
+    XCTAssertNotEqual(randomStringA, randomStringB)
   }
 
   func testNegativeLengthStringGenerator() {

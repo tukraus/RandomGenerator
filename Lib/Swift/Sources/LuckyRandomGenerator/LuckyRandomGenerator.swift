@@ -28,10 +28,12 @@ func currentTimeMillis() -> UInt64 {
 class LuckyRandomGenerator {
 
   func printSetOfTickets(tickets: Array<Int>) {
-    print("Generated Numbers:")
+    var ticketsStringArray = [String]()
     for currentTicket in tickets {
-      print(String(currentTicket))
+      ticketsStringArray.append(String(currentTicket))
     }
+    let joinedString = ticketsStringArray.joined(separator: " - ")
+    print("Generated Numbers: " + joinedString)
   }
 
   func generateLotteryTicket(numbersToGenerate: Int) -> Array<Int> {
