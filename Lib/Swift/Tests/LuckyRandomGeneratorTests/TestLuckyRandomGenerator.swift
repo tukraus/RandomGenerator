@@ -52,11 +52,15 @@ class TestLuckyRandomGenerator: XCTestCase {
 
   func testDifferentStringGenerator() {
     let stringLen = 10
-    let randomStringA = String().generateRandomString(length: stringLen)
-    let randomStringB = String().generateRandomString(length: stringLen)
-    print("Generated String A: " + randomStringA)
-    print("Generated String B: " + randomStringB)
-    XCTAssertNotEqual(randomStringA, randomStringB)
+    let stringsToGenerate = 10
+    var stringSet = Set<String>()
+    for _ in 1...stringsToGenerate {
+      //check if no strings are the same in 10 different random strings generated
+      let oneRandomString = String().generateRandomString(length: stringLen)
+      stringSet.insert(oneRandomString)
+      print("Generated String A: " + oneRandomString)
+    }
+    XCTAssertEqual(stringSet.count, stringsToGenerate)
   }
 
   func testNegativeLengthStringGenerator() {

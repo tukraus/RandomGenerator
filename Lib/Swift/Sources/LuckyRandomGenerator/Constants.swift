@@ -5,7 +5,7 @@ struct Constants {
         static let smallestAllowedValue = 1
         static let biggestAllowedValueInUk = 59
         static let biggestAllowedValueInBrazil = 60
-        static let baseString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%&*^~/;:><,.-+|()"
+        static let baseString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#$%&*^~/;:><,.-+|()¬¢"
     }
 
     struct NumValues {
