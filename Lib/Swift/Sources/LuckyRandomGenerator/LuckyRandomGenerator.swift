@@ -8,9 +8,7 @@ import Darwin.C
 
 func generateRandomNumber(min: Int, max: Int) -> Int {
   #if os(Linux)
-  sleep(1)
-  let time = Int(Date().timeIntervalSinceReferenceDate)
-  srand(UInt32(time))
+  srandom(UInt32(time(nil)))
   return Int(random() % (max - min)) + min;
   #else
   return Int(arc4random_uniform(UInt32(max)))

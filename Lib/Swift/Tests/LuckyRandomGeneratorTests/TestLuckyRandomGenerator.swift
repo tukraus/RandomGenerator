@@ -43,7 +43,7 @@ class TestLuckyRandomGenerator: XCTestCase {
   }
 
   func testPositiveLengthStringGenerator() {
-    let stringLen = 8
+    let stringLen = 10
     let aRandomString = String().generateRandomString(length: stringLen)
     print("Generated String:")
     print(aRandomString);
