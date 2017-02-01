@@ -58,7 +58,7 @@ class TestLuckyRandomGenerator: XCTestCase {
       //check if no strings are the same in 10 different random strings generated
       let oneRandomString = String().generateRandomString(length: stringLen)
       stringSet.insert(oneRandomString)
-      print("Generated String A: " + oneRandomString)
+      print("Generated String: " + oneRandomString)
     }
     XCTAssertEqual(stringSet.count, stringsToGenerate)
   }
