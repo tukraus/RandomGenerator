@@ -33,14 +33,12 @@ class TestLuckyRandomGenerator: XCTestCase {
   func testZeroLotteryTicketsGenerator() {
     let shouldGenerateCountNumbers = 0
     let luckyNumbers = luckyGenerator.generateLotteryTicket(numbersToGenerate: shouldGenerateCountNumbers)
-    luckyGenerator.printSetOfTickets(tickets: luckyNumbers)
     XCTAssertEqual(luckyNumbers.count, shouldGenerateCountNumbers)
   }
 
   func testNegativeLotteryTicketsGenerator() {
     let shouldGenerateCountNumbers = -2
     let luckyNumbers = luckyGenerator.generateLotteryTicket(numbersToGenerate: shouldGenerateCountNumbers)
-    luckyGenerator.printSetOfTickets(tickets: luckyNumbers)
     XCTAssertEqual(luckyNumbers.count, 0)
   }
 
