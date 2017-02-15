@@ -41,7 +41,7 @@ public class LuckyRandomGenerator {
         return random.nextInt(max - min + 1) + min;
     }
 
-    public Set generateLotteryTickets(final int quantity) {
+    public Set<Integer> generateLotteryTickets(final int quantity) {
         final SortedSet<Integer> tickets = new TreeSet<Integer>();
         while(tickets.size() < quantity) {
             tickets.add(generateRandomNumber());

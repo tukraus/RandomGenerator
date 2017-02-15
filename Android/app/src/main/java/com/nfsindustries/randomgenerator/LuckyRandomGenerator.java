@@ -49,7 +49,7 @@ public class LuckyRandomGenerator {
         return tickets;
     }
 
-    public Set generateLotteryTickets(final int quantity, final int min, final int max) {
+    public Set<Integer> generateLotteryTickets(final int quantity, final int min, final int max) {
         minIntValue = min;
         maxIntValue = max;
         return generateLotteryTickets(quantity);
