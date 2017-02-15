@@ -19,6 +19,12 @@ public class LuckyRandomGenerator {
         maxIntValue = biggestAllowedValueInUk;
     }
 
+    public LuckyRandomGenerator(final String locale) {
+        if (locale.equalsIgnoreCase("uk")) {
+            maxIntValue = biggestAllowedValueInUk;
+        }
+    }
+
     public LuckyRandomGenerator(int min, int max) {
         minIntValue = min;
         maxIntValue = max;
