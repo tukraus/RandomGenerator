@@ -60,6 +60,11 @@ public class LuckyRandomGenerator {
         return generateRandomString(length);
     }
 
+    public String generateRandomStringAppendingSaltString(final int length, final String aSaltString) {
+        saltchars += aSaltString;
+        return generateRandomString(length);
+    }
+
     public String generateRandomString(final int length) {
         if (length < 1) {
             throw new IllegalArgumentException("length < 1: " + length);
