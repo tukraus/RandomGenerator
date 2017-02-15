@@ -19,7 +19,7 @@ public class LuckyRandomGenerator {
      * Default constructor sets the maximum random value to the largest constant available
      */
     public LuckyRandomGenerator() {
-        maxIntValue = biggestAllowedValueInUk;
+        maxIntValue = biggestAllowedValueInBrazil;
     }
 
     /**
@@ -29,6 +29,8 @@ public class LuckyRandomGenerator {
     public LuckyRandomGenerator(final String locale) {
         if (locale.equalsIgnoreCase("uk")) {
             maxIntValue = biggestAllowedValueInUk;
+        } else {
+            maxIntValue = biggestAllowedValueInBrazil;
         }
     }
 
