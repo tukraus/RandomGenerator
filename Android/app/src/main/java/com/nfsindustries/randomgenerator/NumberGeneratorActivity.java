@@ -25,17 +25,22 @@ public class NumberGeneratorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_generator);
-        generatedNumbersTextView = (TextView) findViewById(R.id.generatedNumbersTextView);
-        generatedStringTextView = (TextView) findViewById(R.id.generatedStringTextView);
+        setUpViews();
         animateViews();
-
         locale = this.getResources().getConfiguration().locale.getCountry();
         generator = new LuckyRandomGenerator(locale);
+        generateRandom();
+    }
 
+    private void generateRandom() {
         Set<Integer> tickets = generator.generateLotteryTickets(6);
-
         generatedNumbersTextView.setText(tickets.toString());
         generatedStringTextView.setText(generator.generateRandomString(8));
+    }
+
+    private void setUpViews() {
+        generatedNumbersTextView = (TextView) findViewById(R.id.generatedNumbersTextView);
+        generatedStringTextView = (TextView) findViewById(R.id.generatedStringTextView);
     }
 
     private void animateViews() {
