@@ -8,7 +8,7 @@ public class LuckyRandomGenerator {
     public static int biggestAllowedValueInUk = 59;
     public static int biggestAllowedValueInBrazil = 60;
 
-    private String saltchars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@!#$%&*()[];.,<>/{}-+_";
+    private String saltchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@!#$%&*()[];.,<>/{}-+_";
 
     private int minIntValue = smallestAllowedValue;
     private int maxIntValue;

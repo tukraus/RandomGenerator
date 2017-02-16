@@ -15,6 +15,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/generating_random"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/generating_random_numbers"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/generatedStringTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/generating_random_string"
+        android:layout_below="@+id/generatedNumbersTextView"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 </RelativeLayout>

@@ -9,16 +9,22 @@ import java.util.Set;
 public class NumberGeneratorActivity extends AppCompatActivity {
 
     TextView generatedNumbersTextView;
-    final String locale = this.getResources().getConfiguration().locale.getCountry();
-    final LuckyRandomGenerator generator = new LuckyRandomGenerator(locale);
+    TextView generatedStringTextView;
+    String locale;
+    LuckyRandomGenerator generator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_generator);
         generatedNumbersTextView = (TextView)findViewById(R.id.generatedNumbersTextView);
+        generatedStringTextView = (TextView)findViewById(R.id.generatedStringTextView);
+        locale = this.getResources().getConfiguration().locale.getCountry();
+        generator = new LuckyRandomGenerator(locale);
 
         Set<Integer> tickets = generator.generateLotteryTickets(6);
         generatedNumbersTextView.setText(tickets.toString());
+
+        generatedStringTextView.setText(generator.generateRandomString(8));
     }
 }
