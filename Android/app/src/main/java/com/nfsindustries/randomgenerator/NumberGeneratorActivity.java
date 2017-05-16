@@ -9,11 +9,10 @@ import android.widget.TextView;
 import java.util.Set;
 
 public class NumberGeneratorActivity extends AppCompatActivity {
-
-    TextView generatedNumbersTextView;
-    TextView generatedStringTextView;
-    String locale;
-    LuckyRandomGenerator generator;
+    private TextView generatedNumbersTextView;
+    private TextView generatedStringTextView;
+    private String locale;
+    private LuckyRandomGenerator generator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class NumberGeneratorActivity extends AppCompatActivity {
     }
 
     private void animateViews() {
-        Animation animation =
+        final Animation animation =
                 AnimationUtils.loadAnimation(getApplicationContext(),
                         R.anim.blink);
 
