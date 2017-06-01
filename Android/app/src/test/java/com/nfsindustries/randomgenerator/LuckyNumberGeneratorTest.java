@@ -31,4 +31,13 @@ public class LuckyNumberGeneratorTest {
         assertNotEquals(generator.generateRandomNumber(), 60);
         assertNotEquals(generator.generateRandomNumber(), 0);
     }
+
+    @Test
+    public void generation_String() throws Exception {
+        LuckyRandomGenerator generator = new LuckyRandomGenerator("uk");
+        String generatedString = generator.generateRandomString(10);
+        assertNotEquals(generatedString, "");
+        assertNotNull(generatedString);
+        assertEquals(generatedString.length(), 10);
+    }
 }
