@@ -26,7 +26,7 @@ public class NumberGeneratorActivity extends AppCompatActivity {
     }
 
     private void generateRandom() {
-        Set<Integer> tickets = generator.generateLotteryTickets(6);
+        final Set<Integer> tickets = generator.generateLotteryTickets(6);
         generatedNumbersTextView.setText(tickets.toString());
         generatedStringTextView.setText(generator.generateRandomString(8));
     }
