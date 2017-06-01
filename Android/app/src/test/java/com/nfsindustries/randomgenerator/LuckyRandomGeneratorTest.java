@@ -2,6 +2,8 @@ package com.nfsindustries.randomgenerator;
 
 import org.junit.Test;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 /**
@@ -9,7 +11,7 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class LuckyNumberGeneratorTest {
+public class LuckyRandomGeneratorTest {
 
 
     @Test
@@ -35,6 +37,38 @@ public class LuckyNumberGeneratorTest {
     @Test
     public void numberGenerationIsInRangeUK() throws Exception {
         LuckyRandomGenerator generator = new LuckyRandomGenerator("uk");
+        assertNotEquals(generator.generateRandomNumber(), 60);
+        assertNotEquals(generator.generateRandomNumber(), 0);
+    }
+
+    @Test
+    public void numberSetGenerationIsInRangeUK() throws Exception {
+        LuckyRandomGenerator generator = new LuckyRandomGenerator("uk");
+        Set<Integer> randomSet = generator.generateLotteryTickets(8);
+        assertNotNull(randomSet);
+        assertEquals(randomSet.size(), 8);
+
+        for (Integer randGenerated: randomSet) {
+            assertNotEquals(randGenerated, new Integer(61));
+            assertNotEquals(randGenerated, new Integer(0));
+        }
+
+        assertNotEquals(generator.generateRandomNumber(), 60);
+        assertNotEquals(generator.generateRandomNumber(), 0);
+    }
+
+    @Test
+    public void numberSetGenerationIsInRangeCustomMax() throws Exception {
+        LuckyRandomGenerator generator = new LuckyRandomGenerator("uk");
+        Set<Integer> randomSet = generator.generateLotteryTickets(4, 77);
+        assertNotNull(randomSet);
+        assertEquals(randomSet.size(), 4);
+
+        for (Integer randGenerated: randomSet) {
+            assertNotEquals(randGenerated, new Integer(78));
+            assertNotEquals(randGenerated, new Integer(0));
+        }
+
         assertNotEquals(generator.generateRandomNumber(), 60);
         assertNotEquals(generator.generateRandomNumber(), 0);
     }
