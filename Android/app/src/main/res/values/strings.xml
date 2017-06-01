@@ -2,4 +2,5 @@
     <string name="app_name">Random Generator</string>
     <string name="generating_random_numbers">Generating random numbers ;)</string>
     <string name="generating_random_string">Generating random characters ;)</string>
+    <string name="regenerate">REGENERATE</string>
 </resources>

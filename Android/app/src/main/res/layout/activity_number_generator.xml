@@ -16,8 +16,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/generating_random_numbers"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/generatedStringTextView"
@@ -25,8 +27,18 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/generating_random_string"
+        android:layout_marginTop="60dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_below="@+id/generatedNumbersTextView"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/regenerateButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/generatedStringTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/refresh_128"
+        />
 </RelativeLayout>
