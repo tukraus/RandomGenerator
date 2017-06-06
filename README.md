@@ -1,7 +1,5 @@
 ## RandomGenerator
 
-Build status: https://circleci.com/gh/:owner/:repo.svg?style=shield&circle-token=:circle-token
-
 Random Number Lib and App
 
 Easy to customize and generate any random string or (any number of) integers
