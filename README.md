@@ -1,6 +1,6 @@
 ## RandomGenerator
 
-[![CI Status](https://circleci.com/gh/:maxmousee/:RandomGenerator.svg?style=shield&circle-token=:circle-token)](https://travis-ci.org/maxmousee/RandomGenerator)
+[![CI Status](https://circleci.com/gh/maxmousee/RandomGenerator.svg?style=shield&circle-token=:circle-token)](https://travis-ci.org/maxmousee/RandomGenerator)
 
 Random Number Lib and App
 
