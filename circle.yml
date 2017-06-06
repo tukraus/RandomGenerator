@@ -1,14 +1,25 @@
 #
 # Build configuration for Circle CI
 #
-
 machine:
-    environment:
+  java:
+    version: oraclejdk8
+  environment:
+    JAVA_OPTS: "-Xms256m -Xmx512m"
+    ADB_INSTALL_TIMEOUT: 360
 
 dependencies:
+    pre:
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,android-23
+        - echo y | android update sdk --no-ui --all --filter build-tools-23.0.3
+        - echo y | android update sdk --no-ui --all --filter android-23
+        - echo y | android update sdk --no-ui --all --filter tools
+        - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+        - echo y | android update sdk --no-ui --all --filter extra-android-support
+        - echo y | android update sdk --no-ui --all --filter extra-google-google_play_services
+        - echo y | android update sdk --no-ui --all --filter extra-google-m2repository
     override:
-        - chmod +x gradlew
-        - ./gradlew dependencies
+        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
 
 test:
   override:
@@ -19,7 +30,8 @@ test:
     # wait for it to have booted
     - circle-android wait-for-boot
     # run tests against the emulator. [connectedAndroidTest]
-    - ./gradlew test
+    - (./gradlew test):
+            timeout: 360
     # copy the build outputs to artifacts
     - cp -r RandomGenerator/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
