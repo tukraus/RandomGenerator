@@ -1,7 +1,5 @@
 ## RandomGenerator
 
-[![CI Status](https://circleci.com/gh/maxmousee/RandomGenerator.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/RandomGenerator)
-
 Random Number Lib and App
 
 Easy to customize and generate any random string or (any number of) integers
